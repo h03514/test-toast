@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+
+    <style>
+        input:focus,
+        textarea:focus {
+            border: 1px solid #f00;
+            background: #fcc;
+        }
+        
+        ul,
+        li {
+            list-style-type: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>餐點自由選</h2>
+    <p>請輸入任四種你想吃的食物</p>
+    <ul>
+        <li>
+            <input type="text" id="food1" value="章魚燒">
+            <input type="text" id="food2" value="薯條">
+            <input type="text" id="food3" value="滷肉飯">
+            <input type="text" id="food4" value="乾拌麵">
+            <button id="click">click</button>
+        </li>
+    </ul>
+    <p class="foodname"></p>
+</body>
+<script>
+    (function() {
+        $(document).ready(function() {
+            let max = 10;
+            let min = 1;
+
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            $('#click').on('click', function() {
+                let num = getRandom(1, 4);
+                let $val1 = $('#food1').val();
+                let $val2 = $('#food2').val();
+                let $val4 = $('#food4').val();
+                let foodName = $('.foodname');
+                if (num == 1) {
+                    foodName.html('您的選擇是 : ' + $val1);
+                } else if (num == 2) {
+                    foodName.html('您的選擇是 : ' + $val2);
+                } else if (num == 3) {
+                    foodName.html('您的選擇是 : ' + $val3);
+                    alert($val3);
+                } else {
+                    foodName.html('您的選擇是 : ' + $val4);
+                }
+            });
+
+
+        })
+    })()
+</script>
+
+
+</html>
