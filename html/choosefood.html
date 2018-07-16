@@ -6,25 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
-
+    <link rel="stylesheet" href="/css/normalize.css">
     <style>
-        input:focus,
-        textarea:focus {
-            border: 1px solid #f00;
-            background: #fcc;
-        }
-        
         ul,
         li {
-            list-style-type: none;
+            list-style-type: none
+        }
+        
+        body {
+            background-color: #ccc
+        }
+        
+        h1,
+        p,
+        ul {
+            text-align: center
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        a,
+        p,
+        input {
+            font-family: Microsoft JhengHei
+        }
+        
+        .foodtitle {
+            margin-top: 50px
+        }
+        
+        .foodtitle span {
+            color: red;
+            font-size: 1.4em
+        }
+        
+        .foodname {
+            color: #00f
         }
     </style>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
 
 </head>
 
 <body>
-    <h2>餐點自由選</h2>
+    <h1 class="foodtitle">大家來<span>呷</span>飯</h1>
     <p>請輸入任四種你想吃的食物</p>
     <ul>
         <li>
@@ -35,40 +63,8 @@
             <button id="click">click</button>
         </li>
     </ul>
-    <p class="foodname"></p>
+    <p class="foodname">這餐要吃的是 :</p>
+    <script src="/js/main.js"></script>
 </body>
-<script>
-    (function() {
-        $(document).ready(function() {
-            let max = 10;
-            let min = 1;
-
-            function getRandom(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-
-            $('#click').on('click', function() {
-                let num = getRandom(1, 4);
-                let $val1 = $('#food1').val();
-                let $val2 = $('#food2').val();
-                let $val4 = $('#food4').val();
-                let foodName = $('.foodname');
-                if (num == 1) {
-                    foodName.html('您的選擇是 : ' + $val1);
-                } else if (num == 2) {
-                    foodName.html('您的選擇是 : ' + $val2);
-                } else if (num == 3) {
-                    foodName.html('您的選擇是 : ' + $val3);
-                    alert($val3);
-                } else {
-                    foodName.html('您的選擇是 : ' + $val4);
-                }
-            });
-
-
-        })
-    })()
-</script>
-
 
 </html>
